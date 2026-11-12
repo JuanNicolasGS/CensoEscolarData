@@ -1,13 +1,17 @@
 
 from pathlib import Path
-import sqlite3
+import psycopg2
 import pandas as pd
+from dotenv import load_dotenv
 
-
+POSTGRES_DB = load_dotenv("POSTGRES_DB")
+POSTGRES_USER = load_dotenv("POSTGRES_USER")
+POSTGRES_PASSWORD = load_dotenv("POSTGRES_PASSWORD")
+POSTGRES_PORT = load_dotenv("POSTGRES_PORT")
 
 # Caminho dos microdados do Censo Escolar 2025
 PASTA_DADOS = Path(
-    "/home/juniorgomes/Downloads/"
+    "/home/juannicolas/Downloads/"
     "microdados_censo_escolar_2025_/"
     "microdados_censo_escolar_2025_v2/dados"
 )
@@ -105,7 +109,7 @@ def importar_dados():
     total_importado = 0
     codigos_vistos = set()
 
-    with sqlite3.connect(ARQUIVO_BANCO) as conexao:
+    with psycopg2.connect(dbname = POSTGRES_DB, user = POSTGRES_USER, password = POSTGRES_PASSWORD, host="localhost", port = POSTGRES_PORT) as conexao:
         # Recria a tabela para realizar uma carga inicial limpa.
         criar_tabela(conexao)
 
