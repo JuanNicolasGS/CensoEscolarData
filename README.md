@@ -1,1 +1,0 @@
-- [Censo Escolar API](https://github.com/JuanNicolasGS/CensoEscolarAPI20262)
