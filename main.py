@@ -39,7 +39,7 @@ DB_CONFIG = {
 
 
 PASTA_DADOS = Path(
-    "/home/juniorgomes/Downloads/"
+    "/home/juan/Downloads/"
     "microdados_censo_escolar_2025_/"
     "microdados_censo_escolar_2025_v2/dados"
 )
